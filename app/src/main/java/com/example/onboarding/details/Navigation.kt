@@ -34,7 +34,7 @@ fun  WormIndicator(
 ) {
 
     Box(
-        modifier.padding(top=700.dp, start = 50.dp),
+
         contentAlignment = Alignment.CenterStart
     ) {
         Row(
