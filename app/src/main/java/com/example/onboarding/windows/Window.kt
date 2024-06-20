@@ -22,7 +22,7 @@ import com.example.onboarding.util.OnPage
 
 
 @Composable
-fun Greeting(modifier: Modifier = Modifier,onPage:OnPage) {
+fun Greeting(modifier: Modifier = Modifier, onPage: OnPage) {
     if (!onPage.finalWindow)
         Box(
             modifier
@@ -65,7 +65,7 @@ fun Greeting(modifier: Modifier = Modifier,onPage:OnPage) {
             modifier
                 .fillMaxSize()
                 .background(Color(onPage.color)),
-                contentAlignment = Alignment.Center
+            contentAlignment = Alignment.Center
         ) {
             Text(
                 text = onPage.title,
@@ -84,7 +84,7 @@ fun Greeting(modifier: Modifier = Modifier,onPage:OnPage) {
 @Preview
 @Composable
 fun GreetingPreview() {
-Greeting(onPage= OnPage.Second)
+    Greeting(onPage = OnPage.Second)
 }
 
 

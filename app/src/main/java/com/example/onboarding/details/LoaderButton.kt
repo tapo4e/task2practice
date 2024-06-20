@@ -34,18 +34,22 @@ import kotlinx.coroutines.launch
 
 @ExperimentalFoundationApi
 @Composable
-fun Loader(modifier: Modifier = Modifier, onPage: OnPage, pager: PagerState, scope: CoroutineScope) {
+fun Loader(
+    modifier: Modifier = Modifier,
+    onPage: OnPage,
+    pager: PagerState,
+    scope: CoroutineScope
+) {
 
     Box(
         modifier
-            .padding(bottom = 30.dp, end = 40.dp)
-            .size(100.dp)
+            .padding(bottom = 36.dp, end = 40.dp)
+            .size(70.dp)
             .graphicsLayer {
                 clip = true
                 shape = CircleShape
             }
-            .background(Color(onPage.color))
-            ,
+            .background(Color(onPage.color)),
         contentAlignment = Alignment.Center
     )
     {
@@ -53,11 +57,11 @@ fun Loader(modifier: Modifier = Modifier, onPage: OnPage, pager: PagerState, sco
         Canvas(modifier.fillMaxSize()) {
             val width = size.width
             width / 2f
-            val strokeWidth = 8.dp.toPx()
+            val strokeWidth = 4.dp.toPx()
             drawArc(
                 color = Color.White,
                 startAngle = -90f,
-                sweepAngle = (90*(pager.currentPage+1)).toFloat(),
+                sweepAngle = (90 * (pager.currentPage + 1)).toFloat(),
                 useCenter = false,
                 topLeft = Offset(strokeWidth / 2, strokeWidth / 2),
                 size = Size(width - strokeWidth, width - strokeWidth),
@@ -66,7 +70,7 @@ fun Loader(modifier: Modifier = Modifier, onPage: OnPage, pager: PagerState, sco
         }
         Canvas(modifier.fillMaxSize()) {
             val width = size.width
-            val strokeWidth = 8.dp.toPx()
+            val strokeWidth = 4.dp.toPx()
             drawArc(
                 color = Color.White.copy(alpha = 0.6f),
                 startAngle = -90f,
@@ -79,7 +83,7 @@ fun Loader(modifier: Modifier = Modifier, onPage: OnPage, pager: PagerState, sco
         }
         Box(
             modifier
-                .size(70.dp)
+                .size(50.dp)
                 .graphicsLayer {
                     clip = true
                     shape = CircleShape
@@ -105,22 +109,27 @@ fun Loader(modifier: Modifier = Modifier, onPage: OnPage, pager: PagerState, sco
                                 path,
                                 color = Color(onPage.color),
                                 style = Stroke(
-                                    width = 10f,
+                                    width = 7f,
                                     pathEffect = PathEffect.cornerPathEffect(2.dp.toPx()),
                                     cap = StrokeCap.Round
                                 )
                             )
                         }
                     }
-                    .width(10.dp)
-                    .height(20.dp)
+                    .width(8.dp)
+                    .height(15.dp)
             )
         }
     }
 }
+
 @OptIn(ExperimentalFoundationApi::class)
 @Preview
 @Composable
-fun PreviewLoader(){
-    Loader(onPage = OnPage.First, pager = rememberPagerState(initialPage = 0) {0}, scope = rememberCoroutineScope())
+fun PreviewLoader() {
+    Loader(
+        onPage = OnPage.First,
+        pager = rememberPagerState(initialPage = 0) { 0 },
+        scope = rememberCoroutineScope()
+    )
 }

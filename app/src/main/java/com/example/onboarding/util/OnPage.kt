@@ -43,7 +43,8 @@ sealed class OnPage
         color = 0xFF95B6FF,
         finalWindow = false
     )
-    data object Five:OnPage(
+
+    data object Five : OnPage(
         image = 0,
         title = "You are a clever person!",
         text = "",

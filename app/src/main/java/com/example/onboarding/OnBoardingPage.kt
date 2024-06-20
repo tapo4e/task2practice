@@ -43,7 +43,7 @@ fun LayoutOfWindows(modifier: Modifier = Modifier) {
             Greeting(onPage = listOfWindows[page])
         }
         val coroutineScope = rememberCoroutineScope()
-        if(pageState.currentPage!=4) {
+        if (pageState.currentPage != 4) {
             Loader(
                 onPage = listOfWindows[pageState.currentPage],
                 pager = pageState,
