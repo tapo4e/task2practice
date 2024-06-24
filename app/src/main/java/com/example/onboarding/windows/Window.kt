@@ -32,7 +32,7 @@ fun Greeting(modifier: Modifier = Modifier, onPage: OnPage) {
             Column(
                 modifier
                     .padding(
-                        start = 30.dp,
+                        start = 20.dp,
                         top = 50.dp,
                     )
                     .align(Alignment.TopStart)
